@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="UrhoUWPHoloLens.CallPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UrhoUWPHoloLens"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Padding="16" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock FontSize="16">Calling Page</TextBlock>
+        <Button x:Name="Call" Click="Call_Click">Call</Button>
+        <RelativePanel RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True">
+            <MediaElement 
+                Name="PeerVideo"
+                RealTimePlayback="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                MediaFailed="PeerVideo_MediaFailed"/>
+        </RelativePanel>
+    </StackPanel>
+</Page>

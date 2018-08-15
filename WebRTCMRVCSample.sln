@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Common", "Common\Common.shproj", "{4CD0B07E-C8DD-41A5-965E-F18281B2C18D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrhoUWPHoloLens", "UrhoUWPHoloLens\UrhoUWPHoloLens.csproj", "{C026C27C-FAE7-476D-A427-EC5A0BB71552}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Common\Common.projitems*{4cd0b07e-c8dd-41a5-965e-f18281b2c18d}*SharedItemsImports = 13
+		Common\Common.projitems*{c026c27c-fae7-476d-a427-ec5a0bb71552}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Debug|ARM.ActiveCfg = Debug|ARM
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Debug|ARM.Build.0 = Debug|ARM
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Debug|ARM.Deploy.0 = Debug|ARM
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Debug|x64.ActiveCfg = Debug|x64
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Debug|x64.Build.0 = Debug|x64
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Debug|x64.Deploy.0 = Debug|x64
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Debug|x86.ActiveCfg = Debug|x86
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Debug|x86.Build.0 = Debug|x86
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Debug|x86.Deploy.0 = Debug|x86
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|ARM.ActiveCfg = Release|ARM
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|ARM.Build.0 = Release|ARM
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|ARM.Deploy.0 = Release|ARM
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|x64.ActiveCfg = Release|x64
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|x64.Build.0 = Release|x64
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|x64.Deploy.0 = Release|x64
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|x86.ActiveCfg = Release|x86
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|x86.Build.0 = Release|x86
+		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE7DB796-AB76-41E5-B44C-3112143892AA}
+	EndGlobalSection
+EndGlobal

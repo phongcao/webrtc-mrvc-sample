@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>4cd0b07e-c8dd-41a5-965e-f18281b2c18d</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Common</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Data\Materials\Earth.xml" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Materials\Moon.xml" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Techniques\EarthTechnique.xml" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Textures\Earth.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Textures\Earth_Clouds.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Textures\Earth_Night.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Textures\Earth_NormalsMap.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Textures\Earth_SpecularMap.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Textures\License.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Textures\Moon.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Textures\Moon_NormalsMap.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Data\Textures\Space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Source\Model\IceServer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\Model\Peer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\MVVM\BindableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\MVVM\DispatcherBindableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\Signalling\Conductor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\Signalling\Signaller.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\Utilities\SdpUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\Utilities\ValiableIntegerString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\Utilities\ValiableNonEmptyString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\Utilities\ValidableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Source\ViewModels\CallViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Data\Shaders\HLSL\CustomLitSolid.hlsl" />
+  </ItemGroup>
+</Project>
