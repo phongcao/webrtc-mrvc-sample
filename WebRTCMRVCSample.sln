@@ -7,9 +7,12 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Common", "Common\Common.shp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrhoUWPHoloLens", "UrhoUWPHoloLens\UrhoUWPHoloLens.csproj", "{C026C27C-FAE7-476D-A427-EC5A0BB71552}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrhoUWPDesktop", "UrhoUWPDesktop\UrhoUWPDesktop.csproj", "{9D112097-5815-4E69-BD89-8D723443D746}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Common\Common.projitems*{4cd0b07e-c8dd-41a5-965e-f18281b2c18d}*SharedItemsImports = 13
+		Common\Common.projitems*{9d112097-5815-4e69-bd89-8d723443d746}*SharedItemsImports = 4
 		Common\Common.projitems*{c026c27c-fae7-476d-a427-ec5a0bb71552}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +42,24 @@ Global
 		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|x86.ActiveCfg = Release|x86
 		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|x86.Build.0 = Release|x86
 		{C026C27C-FAE7-476D-A427-EC5A0BB71552}.Release|x86.Deploy.0 = Release|x86
+		{9D112097-5815-4E69-BD89-8D723443D746}.Debug|ARM.ActiveCfg = Debug|ARM
+		{9D112097-5815-4E69-BD89-8D723443D746}.Debug|ARM.Build.0 = Debug|ARM
+		{9D112097-5815-4E69-BD89-8D723443D746}.Debug|ARM.Deploy.0 = Debug|ARM
+		{9D112097-5815-4E69-BD89-8D723443D746}.Debug|x64.ActiveCfg = Debug|x64
+		{9D112097-5815-4E69-BD89-8D723443D746}.Debug|x64.Build.0 = Debug|x64
+		{9D112097-5815-4E69-BD89-8D723443D746}.Debug|x64.Deploy.0 = Debug|x64
+		{9D112097-5815-4E69-BD89-8D723443D746}.Debug|x86.ActiveCfg = Debug|x86
+		{9D112097-5815-4E69-BD89-8D723443D746}.Debug|x86.Build.0 = Debug|x86
+		{9D112097-5815-4E69-BD89-8D723443D746}.Debug|x86.Deploy.0 = Debug|x86
+		{9D112097-5815-4E69-BD89-8D723443D746}.Release|ARM.ActiveCfg = Release|ARM
+		{9D112097-5815-4E69-BD89-8D723443D746}.Release|ARM.Build.0 = Release|ARM
+		{9D112097-5815-4E69-BD89-8D723443D746}.Release|ARM.Deploy.0 = Release|ARM
+		{9D112097-5815-4E69-BD89-8D723443D746}.Release|x64.ActiveCfg = Release|x64
+		{9D112097-5815-4E69-BD89-8D723443D746}.Release|x64.Build.0 = Release|x64
+		{9D112097-5815-4E69-BD89-8D723443D746}.Release|x64.Deploy.0 = Release|x64
+		{9D112097-5815-4E69-BD89-8D723443D746}.Release|x86.ActiveCfg = Release|x86
+		{9D112097-5815-4E69-BD89-8D723443D746}.Release|x86.Build.0 = Release|x86
+		{9D112097-5815-4E69-BD89-8D723443D746}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

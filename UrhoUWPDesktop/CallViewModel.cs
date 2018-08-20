@@ -3,7 +3,6 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Urho.SharpReality;
 using WebRTCUWP.Model;
 using WebRTCUWP.MVVM;
 using WebRTCUWP.Signalling;
@@ -14,7 +13,7 @@ using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
-namespace WebRTCUWP.ViewModels
+namespace UrhoUWPDesktop
 {
     class CallViewModel : DispatcherBindableBase
     {
@@ -27,9 +26,12 @@ namespace WebRTCUWP.ViewModels
         private bool _cameraEnabled = true;
         private bool _microphoneIsOn = false;
 
+        public UrhoApplication UrhoApplication { get; internal set; }
+
         private bool _isHoloLens = false;
 
         private RawVideoSource _rawVideoSource;
+        public RawVideoSource RawVideoSource { get => _rawVideoSource; set => _rawVideoSource = value; }
 
         public CallViewModel(CoreDispatcher uiDispatcher) : base(uiDispatcher)
         {
@@ -74,7 +76,7 @@ namespace WebRTCUWP.ViewModels
             // For the HoloLens
             if (_isHoloLens)
             {
-                WebRTC.SetPreferredVideoCaptureFormat(896, 504, 30);
+                WebRTC.SetPreferredVideoCaptureFormat(UrhoApplication.VIDEO_WIDTH_LOW, UrhoApplication.VIDEO_HEIGHT_LOW, 60);
             }
 
             // Pick the codec
@@ -160,7 +162,6 @@ namespace WebRTCUWP.ViewModels
 
             
             // Event handlers for managing the media streams 
-
             Conductor.Instance.OnAddRemoteStream += Conductor_OnAddRemoteStream;
             Conductor.Instance.OnRemoveRemoteStream += Conductor_OnRemoveRemoteStream;
             Conductor.Instance.OnAddLocalStream += Conductor_OnAddLocalStream;
@@ -341,15 +342,14 @@ namespace WebRTCUWP.ViewModels
                 //    Conductor.Instance.Media.AddVideoTrackMediaElementPair(_peerVideoTrack, PeerVideo, "PEER");
                 //}
 
+                RawVideoSource = Conductor.Instance.Media.CreateRawVideoSource(_peerVideoTrack);
+                RawVideoSource.OnRawVideoFrame += ((__param0, __param1, __param2, __param3, __param4, __param5, __param6, __param7, __param8, __param9, __param10, __param11, __param12, __param13, __param14) => UrhoApplication.RawVideoSource_OnRawVideoFrame(__param0, __param1, __param2, __param3, __param4, __param5, __param6, __param7, __param8, __param9, __param10, __param11, __param12, __param13, __param14));
+
                 //var source = Media.CreateMedia().CreateMediaSource(_peerVideoTrack, "PEER");
                 //RunOnUiThread(() =>
                 //{
                 //  PeerVideo.SetMediaStreamSource(source);
                 //});
-
-                // Pass the spatial coordinate system to webrtc.
-                var spatialCoordinateSystem = UrhoAppView.Current.ReferenceFrame.CoordinateSystem;
-                Media.SetSpatialCoordinateSystem(spatialCoordinateSystem);
             }
 
             IsReadyToDisconnect = true;
@@ -587,8 +587,6 @@ namespace WebRTCUWP.ViewModels
                 //DisconnectFromPeerCommand.RaiseCanExecuteChanged();
             }
         }
-
-        public RawVideoSource RawVideoSource { get => _rawVideoSource; set => _rawVideoSource = value; }
 
         public void CallFirstPeer()
         {

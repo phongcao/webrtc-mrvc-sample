@@ -1,10 +1,12 @@
-﻿using Windows.ApplicationModel.Core;
+﻿using Urho;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace UrhoUWPHoloLens
+namespace UrhoUWPDesktop
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -12,10 +14,12 @@ namespace UrhoUWPHoloLens
     public sealed partial class CallPage : Page
     {
         private CallViewModel _callViewModel;
+        private UrhoApplication _application;
 
         public CallPage()
         {
             this.InitializeComponent();
+            Loaded += Page_Loaded;
 
             // On this page we need to start the basic initialization and handling for webrtc
         }
@@ -38,15 +42,23 @@ namespace UrhoUWPHoloLens
         /// <param name="e">Details about the exception routed event.</param>
         private void PeerVideo_MediaFailed(object sender, Windows.UI.Xaml.ExceptionRoutedEventArgs e)
         {
-//            if (_mainViewModel != null)
-//            {
-//                _mainViewModel.PeerVideo_MediaFailed(sender, e);
-//            }
         }
 
         private void Call_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             _callViewModel.CallFirstPeer();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _application = UrhoSurface.Run<UrhoApplication>(
+                new ApplicationOptions("Data")
+                {
+                    Width = UrhoApplication.VIDEO_WIDTH_LOW,
+                    Height = UrhoApplication.VIDEO_HEIGHT_LOW
+                });
+
+            _callViewModel.UrhoApplication = _application;
         }
     }
 }

@@ -33,7 +33,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Source\Utilities\ValiableIntegerString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Source\Utilities\ValiableNonEmptyString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Source\Utilities\ValidableBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Source\ViewModels\CallViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Data\Shaders\HLSL\CustomLitSolid.hlsl" />
