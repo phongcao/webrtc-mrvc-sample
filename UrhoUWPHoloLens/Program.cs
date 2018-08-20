@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Urho;
-using Urho.Actions;
 using Urho.Shapes;
 using Urho.SharpReality;
-using WebRTCUWP.ViewModels;
 using Windows.ApplicationModel.Core;
 
 namespace UrhoUWPHoloLens
@@ -50,10 +48,6 @@ namespace UrhoUWPHoloLens
 
             var moon = moonNode.CreateComponent<Sphere>();
             moon.SetMaterial(ResourceCache.GetMaterial("Materials/Moon.xml"));
-
-            // Run a few actions to spin the Earth, the Moon and the clouds.
-            _earthNode.RunActions(new RepeatForever(new RotateBy(
-                duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
 
             // Register Cortana commands
             await RegisterCortanaCommands(new Dictionary<string, Action>
