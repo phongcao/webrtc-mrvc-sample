@@ -137,9 +137,8 @@ namespace UrhoUWPDesktop
             byte[] vPlane, uint vPitch,
             byte[] uPlane, uint uPitch)
         {
-            var data = _bg.ConvertI420ToABGR(
-                (UInt64)_texture.GetGPUObject(), width, height,
-                yPlane, yPitch, vPlane, vPitch, uPlane, uPitch);
+            var data = _bg.ConvertI420ToABGR(width, height, yPlane, yPitch,
+                vPlane, vPitch, uPlane, uPitch);
 
             _texture.SetData(0, 0, 0, (int)width, (int)height, (void*)data);
         }
