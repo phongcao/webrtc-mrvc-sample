@@ -11,13 +11,11 @@ BackgroundRenderer::BackgroundRenderer(int width, int height)
     sRGBFrame.resize(width * height * 4);
 }
 
-uint64 BackgroundRenderer::ConvertI420ToABGR(
-	uint64 texPtr, uint32_t width, uint32_t height, 
+uint64 BackgroundRenderer::ConvertI420ToABGR(uint32_t width, uint32_t height,
     const Array<uint8_t>^ yPlane, uint32_t yPitch,
 	const Array<uint8_t>^ uPlane, uint32_t uPitch,
 	const Array<uint8_t>^ vPlane, uint32_t vPitch)
 {
-    
     libyuv::I420ToABGR(
         yPlane->Data,
         yPitch,
