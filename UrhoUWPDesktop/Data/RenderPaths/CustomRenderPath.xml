@@ -1,7 +1,9 @@
 ﻿<renderpath>
   <command type="clear" color="fog" depth="1.0" stencil="0" />
-  <command type="quad" vs="CopyFramebuffer" ps="CopyFramebuffer" blend="replace" output="viewport">
-    <texture unit="diffuse" name="video_feed" />
+  <command type="quad" vs="I420toABGR" ps="I420toABGR" blend="replace" output="viewport">
+    <texture unit="diffuse" name="video_feed_y" />
+    <texture unit="normal" name="video_feed_v" />
+    <texture unit="specular" name="video_feed_u" />
   </command>
   <command type="scenepass" pass="base" vertexlights="true" metadata="base" />
   <command type="forwardlights" pass="light" />

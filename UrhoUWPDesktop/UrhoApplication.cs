@@ -75,11 +75,19 @@ namespace UrhoUWPDesktop
 
             // Video feed background
             _videoPlayer = new VideoPlayer();
-            var videoTexture = _videoPlayer.GetTexture();
-            videoTexture.Name = "video_feed";
+            var videoTextureY = _videoPlayer.TextureY;
+            videoTextureY.Name = "video_feed_y";
+
+            var videoTextureV = _videoPlayer.TextureV;
+            videoTextureV.Name = "video_feed_v";
+
+            var videoTextureU = _videoPlayer.TextureU;
+            videoTextureU.Name = "video_feed_u";
 
             // Add render texture to res cache so it's available to render path
-            ResourceCache.AddManualResource(videoTexture);
+            ResourceCache.AddManualResource(videoTextureY);
+            ResourceCache.AddManualResource(videoTextureV);
+            ResourceCache.AddManualResource(videoTextureU);
 
             // DebugHud
             debugHud = new MonoDebugHud(this);
@@ -112,23 +120,35 @@ namespace UrhoUWPDesktop
 
     public class VideoPlayer : Component
     {
-        private Texture2D _texture;
-        private BackgroundRenderer _bg;
+        public Texture2D TextureY { private set; get; }
+        public Texture2D TextureV { private set; get; }
+        public Texture2D TextureU { private set; get; }
 
         public VideoPlayer()
         {
-            _bg = new BackgroundRenderer(
-                UrhoApplication.VIDEO_WIDTH_LOW, UrhoApplication.VIDEO_HEIGHT_LOW);
-
-            _texture = new Texture2D();
-            _texture.SetSize(
+            TextureY = CreateComponentTexture();
+            TextureY.SetSize(
                 UrhoApplication.VIDEO_WIDTH_LOW, UrhoApplication.VIDEO_HEIGHT_LOW,
-                Graphics.RGBAFormat, TextureUsage.Rendertarget);  
+                Graphics.LuminanceFormat, TextureUsage.Rendertarget);
 
-            _texture.FilterMode = TextureFilterMode.Nearest;
+            TextureV = CreateComponentTexture();
+            TextureV.SetSize(
+                UrhoApplication.VIDEO_WIDTH_LOW / 2, UrhoApplication.VIDEO_HEIGHT_LOW / 2,
+                Graphics.LuminanceFormat, TextureUsage.Rendertarget);
 
-            var renderSurface = _texture.RenderSurface;
-            renderSurface.UpdateMode = RenderSurfaceUpdateMode.Updatealways;
+            TextureU = CreateComponentTexture();
+            TextureU.SetSize(
+                UrhoApplication.VIDEO_WIDTH_LOW / 2, UrhoApplication.VIDEO_HEIGHT_LOW / 2,
+                Graphics.LuminanceFormat, TextureUsage.Rendertarget);
+        }
+
+        private Texture2D CreateComponentTexture()
+        {
+            Texture2D tex = new Texture2D();
+            tex.FilterMode = TextureFilterMode.Nearest;
+            //tex.RenderSurface.UpdateMode = RenderSurfaceUpdateMode.Updatealways;
+
+            return tex;
         }
 
         public unsafe void OnRawVideoFrame(
@@ -137,15 +157,10 @@ namespace UrhoUWPDesktop
             byte[] vPlane, uint vPitch,
             byte[] uPlane, uint uPitch)
         {
-            var data = _bg.ConvertI420ToABGR(width, height, yPlane, yPitch,
-                vPlane, vPitch, uPlane, uPitch);
-
-            _texture.SetData(0, 0, 0, (int)width, (int)height, (void*)data);
-        }
-
-        public Texture2D GetTexture()
-        {
-            return _texture;
+            // TODO: adjust size for pitch (stride) if it's possible for it to be non-zero, and handle stride in shader
+            TextureY.SetData(0, 0, 0, (int)width, (int)height, yPlane); 
+            TextureV.SetData(0, 0, 0, (int)width / 2, (int)height / 2, vPlane);
+            TextureU.SetData(0, 0, 0, (int)width / 2, (int)height / 2, uPlane);
         }
     }
 }

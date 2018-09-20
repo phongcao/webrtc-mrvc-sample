@@ -116,7 +116,14 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\RenderPaths\CustomRenderPath.xml" />
+    <Content Include="Data\RenderPaths\CustomRenderPath.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\Shaders\HLSL\I420toABGR.hlsl" />
+    <Content Include="Data\Shaders\HLSL\Samplers.hlsl" />
+    <Content Include="Data\Shaders\HLSL\ScreenPos.hlsl" />
+    <Content Include="Data\Shaders\HLSL\Transform.hlsl" />
+    <Content Include="Data\Shaders\HLSL\Uniforms.hlsl" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -187,4 +194,5 @@
       <HintPath>..\webrtc\webrtc\windows\solutions\Build\Output\Org.WebRtc.Uwp\Debug\x86\Org.WebRtc.winmd</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
 </Project>
